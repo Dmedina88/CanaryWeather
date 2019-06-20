@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CanaryWeather</string>
+    <string name="temp">Low Temp, %f High Temp %f</string>
+    <string name="feels_like_temp">Feels like Low Temp, %f Feels like High Temp %f</string>
+    <string name="humidity">humidity: %f</string>
+    <string name="rain_probability">Rain Probability : %f</string>
+    <string name="sunset">sun set time : %f</string>
+    <string name="sunrise">sun rise time : %f</string>
+    <string name="precip_type">Precip type : %s</string>
+</resources>
