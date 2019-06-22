@@ -57,6 +57,10 @@ class ForecastPreviewFragment : Fragment() {
             }
         })
 
+        bindings.fab.setOnClickListener {
+            forecastPreviewViewModel.updateForecast()
+        }
+
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

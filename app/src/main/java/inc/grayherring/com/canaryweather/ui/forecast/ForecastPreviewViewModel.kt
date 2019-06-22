@@ -7,8 +7,10 @@ import androidx.lifecycle.viewModelScope
 import inc.grayherring.com.canaryweather.data.models.Forecast
 import inc.grayherring.com.canaryweather.data.repo.LocationPermissionError
 import inc.grayherring.com.canaryweather.data.service.WeatherService
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import timber.log.Timber
 import java.io.IOException
 import java.net.UnknownHostException
 
@@ -30,7 +32,10 @@ class ForecastPreviewViewModel(private val weatherService: WeatherService) : Vie
             try {
                 _forecast.value = weatherService.getLocalForecasts().sortedBy { it.time }
                 _forecast.value = weatherService.updateForecast().sortedBy { it.time }
+
             } catch (e: Throwable) {
+                println(e.message)
+
                 if (e is LocationPermissionError)
                 _error.value = ForecastError.LocationPermissionError
                 _error.value = null
@@ -41,6 +46,5 @@ class ForecastPreviewViewModel(private val weatherService: WeatherService) : Vie
             }
 
         }
-
     }
 }
