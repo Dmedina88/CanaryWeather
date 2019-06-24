@@ -34,8 +34,6 @@ class ForecastPreviewViewModel(private val weatherService: WeatherService) : Vie
                 _forecast.value = weatherService.updateForecast().sortedBy { it.time }
 
             } catch (e: Throwable) {
-                println(e.message)
-
                 if (e is LocationPermissionError)
                 _error.value = ForecastError.LocationPermissionError
                 _error.value = null
